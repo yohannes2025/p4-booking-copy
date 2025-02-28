@@ -1,3 +1,4 @@
+<!--booking_app/templates/booking_app/base.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,14 +70,14 @@
                 <a class="nav-link" href="{% url 'view_bookings' %}">My Bookings</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
               </li>
               {% else %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
               </li>
               {% endif %}
             </ul>
