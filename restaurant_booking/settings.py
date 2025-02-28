@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z=a#moxv+aw-#_wyp-qork(^uhir#u-6xu2by8co(el3d09wq3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -152,5 +152,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-LOGIN_REDIRECT_URL = "home" 
+LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"  # Redirect users after logout
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,24 +1,36 @@
-<!-- booking_app/templates/booking_app/view_bookings.html -->
-{% extends 'booking_app/base.html' %} {% block title %}My Bookings{% endblock %}
+{% extends "booking_app/base.html" %}
+{% block title %}My Bookings{% endblock %}
 {% block content %}
 <h1>My Bookings</h1>
 {% if bookings %}
-<ul>
-  {% for booking in bookings %}
-  <li>
-    {{ booking.booking_date }} - {{ booking.booking_time }} - {{
-    booking.restaurant.name }} - Table {{ booking.table.table_number }}
-    <form
-      method="post"
-      action="{% url 'cancel_booking' booking.id %}"
-      style="display: inline"
-    >
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Cancel</button>
-    </form>
-  </li>
-  {% endfor %}
-</ul>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Booking Date</th>
+      <th>Booking Time</th>
+      <th>Restaurant</th>
+      <th>Table</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for booking in bookings %}
+    <tr>
+      <td>{{ booking.booking_date }}</td>
+      <td>{{ booking.booking_time }}</td>
+      <td>{{ booking.restaurant.name }}</td>
+      <td>Table {{ booking.table.table_number }}</td>
+      <td>
+        <form method="post" action="{% url 'cancel_booking' booking.id %}" style="display: inline">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% else %}
 <p>You have no bookings.</p>
-{% endif %} {% endblock %}
+{% endif %}
+{% endblock %}
