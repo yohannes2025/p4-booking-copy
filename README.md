@@ -367,7 +367,7 @@ Regular debugging sessions were held, and issues were tracked in the GitHub repo
 ### Lighthouse
 Performance audits were conducted using Google Lighthouse, focusing on speed and accessibility.
 
-![Alt text](static/images/lighthouse.png)
+![Lighthouse_Validation](static/images/Lighthouse.png)
 
   
 ---
