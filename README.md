@@ -37,7 +37,6 @@
   - [Repository deployment via Heroku](#repository-deployment-via-heroku)
   - [Deployment of the app](#deployment-of-the-app)
 - [Credits](#credits)
-- [Media](#media)
 - [Acknowledgments and Thanks](#acknowledgments-and-thanks)
 
 
@@ -391,13 +390,11 @@ All HTML and CSS were validated using the W3C Validator to ensure conformance wi
 Unit tests were created using Django's testing framework to validate models and views.
 
 ## Credits
-Developed by [Your Name], using open-source resources and libraries.
+Developed by Mebrathu Tekle,yohannes, using open-source resources and libraries.
 
-## Media
-Images and media used within the app are sourced from royalty-free websites and credited appropriately.
 
 ## Acknowledgments and Thanks
-Special thanks to all contributors and the user testing team whose feedback enhanced the project.
+Special thanks to all Code Institute members especially Tutors, Student Care and my Mentor 
 
 ## Deployment
 ### Github Deployment
