@@ -1,5 +1,6 @@
-
 # Restaurant Booking System
+
+![Home_Page](static/images/home.png)
 
 ## CONTENTS
 - [Site Objectives](#site-objectives)
