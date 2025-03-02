@@ -1,5 +1,6 @@
-
 # Restaurant Booking System
+
+![Home_Page](static/images/home.png)
 
 ## CONTENTS
 - [Site Objectives](#site-objectives)
@@ -105,8 +106,6 @@ The target audience for this application includes:
 The chosen color scheme aims to evoke a warm and inviting atmosphere while maintaining clarity and usability. The primary colors are:
 
 
-![Color Palette](link_to_color_palette_image)
-
 ### Typography
 
 The typography choices focus on readability and aesthetic appeal. The selected fonts are:
@@ -125,7 +124,6 @@ Wireframes provide a blueprint of the user interface, outlining the basic layout
 - **Reservation Page Wireframe**: Displays a form for date, time, number of guests, and special requests.
 - **Profile Page Wireframe**: Allows users to view and edit their profiles and reservation history.
 
-![Wireframe](link_to_wireframe_image)
 
 ### Flow Diagram
 
@@ -136,7 +134,6 @@ The flow diagram illustrates the user journey through the Restaurant Booking Sys
 - **Reservation Process**: Users select a restaurant, choose a date/time, and confirm the reservation.
 - **Confirmation/Feedback**: Users receive a confirmation email and can leave feedback after their dining experience.
 
-![Flow Diagram](link_to_flow_diagram_image)
 
 ### Database Plan
 
@@ -401,8 +398,16 @@ All HTML and CSS were validated using the W3C Validator to ensure conformance wi
 #### Python Testing
 Unit tests were created using Django's testing framework to validate models and views.
 
-## Deployment
+## Credits
+Developed by [Your Name], using open-source resources and libraries.
 
+## Media
+Images and media used within the app are sourced from royalty-free websites and credited appropriately.
+
+## Acknowledgments and Thanks
+Special thanks to all contributors and the user testing team whose feedback enhanced the project.
+
+## Deployment
 ### Github Deployment
 The project is hosted on GitHub, allowing collaborative development and version control.
 
@@ -413,8 +418,5 @@ Users can fork the repository to contribute or create a copy for personal use.
 To clone the repository, run:
 ```bash
 git clone https://pp4restaurant-booking-system-a622aad68454.herokuapp.com/
-
-
-
 
 
