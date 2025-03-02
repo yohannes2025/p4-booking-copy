@@ -220,7 +220,7 @@ This document outlines the key features of the Restaurant Booking System, design
      - Menu options
      - Customer reviews and ratings
      - Contact information
-![My_bookings](static/images/my_bookigs.png)
+![My_bookings](static/images/my_bookings.png)
 
 
 4. **Reservation Management**:
