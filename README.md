@@ -13,7 +13,6 @@
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
   - [Logo and Favicon](#logo-and-favicon)
-  - [Wireframes](#wireframes)
   - [Flow Diagram](#flow-diagram)
   - [Database Plan](#database-plan)
 - [Features](#features)
@@ -116,23 +115,6 @@ The typography choices focus on readability and aesthetic appeal. The selected f
 - Headings: 24px (H1), 20px (H2), 18px (H3)
 - Body Text: 16px
 
-### Wireframes
-
-Wireframes provide a blueprint of the user interface, outlining the basic layout and functionality without concentrating on visual design.
-
-- **Home Page Wireframe**: Features sections like restaurant search, special offers, and top-rated restaurants.
-- **Reservation Page Wireframe**: Displays a form for date, time, number of guests, and special requests.
-- **Profile Page Wireframe**: Allows users to view and edit their profiles and reservation history.
-
-
-### Flow Diagram
-
-The flow diagram illustrates the user journey through the Restaurant Booking System, depicting how users interact with the application’s features.
-
-- **User Registration/Login**: First-time users register while returning users log in to access their accounts.
-- **Restaurant Search**: Users search for restaurants based on various criteria (location, cuisine, rating).
-- **Reservation Process**: Users select a restaurant, choose a date/time, and confirm the reservation.
-- **Confirmation/Feedback**: Users receive a confirmation email and can leave feedback after their dining experience.
 
 
 ### Database Plan
