@@ -12,8 +12,6 @@
 - [Design Choices](#design-choices)
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
-  - [Logo and Favicon](#logo-and-favicon)
-  - [Wireframes](#wireframes)
   - [Flow Diagram](#flow-diagram)
   - [Database Plan](#database-plan)
 - [Features](#features)
@@ -80,9 +78,9 @@ The target audience for this application includes:
 - Restaurant owners who want to manage bookings more efficiently.
 - Users who appreciate a seamless online experience for reservations.
 
-**User Stories**
+##User Stories
 
-**New Visitor Goals**
+###New Visitor Goals
 
 1. **As a new visitor**, I want to easily navigate the website so that I can quickly find a restaurant that meets my preferences.
 2. **As a new visitor**, I want to view detailed information about each restaurant (menu, photos, reviews) so that I can make an informed decision.
@@ -90,7 +88,7 @@ The target audience for this application includes:
 4. **As a new visitor**, I want to receive confirmation of my reservation via email or SMS so that I have a record of it.
 5. **As a new visitor**, I want to see special offers or promotions to take advantage of potential discounts.
 
-**Existing Visitor Goals**
+###Existing Visitor Goals
 
 1. **As an existing visitor**, I want to log in to my account easily so that I can access my previous reservations and preferences.
 2. **As an existing visitor**, I want to modify or cancel my reservations without complications to manage my plans effectively.
@@ -118,15 +116,7 @@ The typography choices focus on readability and aesthetic appeal. The selected f
 - Headings: 24px (H1), 20px (H2), 18px (H3)
 - Body Text: 16px
 
-### Wireframes
 
-Wireframes provide a blueprint of the user interface, outlining the basic layout and functionality without concentrating on visual design.
-
-- **Home Page Wireframe**: Features sections like restaurant search, special offers, and top-rated restaurants.
-- **Reservation Page Wireframe**: Displays a form for date, time, number of guests, and special requests.
-- **Profile Page Wireframe**: Allows users to view and edit their profiles and reservation history.
-
-![Wireframe](link_to_wireframe_image)
 
 ### Flow Diagram
 
