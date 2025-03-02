@@ -15,7 +15,8 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Customize the form to show only available tables for the selected restaurant
+        # Customize the form to show only available tables
+        # for the selected restaurant
         if 'restaurant' in self.data:
             try:
                 restaurant_id = int(self.data.get('restaurant'))
@@ -26,8 +27,10 @@ class BookingForm(forms.ModelForm):
                 self.fields['table'].queryset = Table.objects.none()
         elif self.instance.pk:
             # If the form has an instance display all tables
-            self.fields['table'].queryset = self.instance.restaurant.tables.all()
+            self.fields['table'].queryset = (
+                self.instance.restaurant.tables.all()
+            )
 
-        # Add a class to the restaurant field for AJAX filtering (Optional, but good practice)
+        # Add a class to the restaurant field for AJAX filtering
         self.fields['restaurant'].widget.attrs.update(
             {'class': 'restaurant-select'})

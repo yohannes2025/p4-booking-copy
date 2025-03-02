@@ -13,7 +13,11 @@ from django.contrib.auth import logout
 
 def home(request):
     restaurants = Restaurant.objects.all()
-    return render(request, 'booking_app/home.html', {'restaurants': restaurants})
+    return render(
+        request,
+        'booking_app/home.html',
+        {'restaurants': restaurants}
+    )
 
 
 @login_required
@@ -39,7 +43,11 @@ def book_table(request):
 def view_bookings(request):
     bookings = Booking.objects.filter(user=request.user).order_by(
         '-booking_date', '-booking_time')
-    return render(request, 'booking_app/view_bookings.html', {'bookings': bookings})
+    return render(
+        request,
+        'booking_app/view_bookings.html',
+        {'bookings': bookings}
+    )
 
 
 @login_required
@@ -49,7 +57,11 @@ def cancel_booking(request, booking_id):
         booking.delete()
         messages.success(request, 'Your booking has been cancelled.')
         return redirect('view_bookings')
-    return render(request, 'booking_app/cancel_booking.html', {'booking': booking})
+    return render(
+        request,
+        'booking_app/cancel_booking.html',
+        {'booking': booking}
+    )
 
 # Add register view
 
@@ -65,7 +77,3 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'booking_app/register.html', {'form': form})
-
-
-
-    

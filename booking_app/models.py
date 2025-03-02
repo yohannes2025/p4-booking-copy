@@ -36,7 +36,10 @@ class Booking(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Booking for {self.number_of_guests} at {self.booking_time} on {self.booking_date}"
+        return (
+            f"Booking for {self.number_of_guests} at {self.booking_time} "
+            f"on {self.booking_date}"
+        )
 
     def clean(self):
         # Prevent double bookings
