@@ -207,17 +207,21 @@ This document outlines the key features of the Restaurant Booking System, design
 1. **User Registration and Authentication**:
    - Users can create an account and securely log in to access features tailored to their preferences.
    - Password recovery options are available for users who forget their login credentials.
+![Registration](static/images/sign_up.png)
+
 
 2. **Restaurant Search**:
    - Users can search for restaurants based on various criteria including location, cuisine type, and rating.
    - Filters to narrow down search results based on price range, distance, and availability.
+![Book_a_table](static/images/book_a_table.png)
 
 3. **Detailed Restaurant Profiles**:
    - Each restaurant has a dedicated profile page featuring:
      - Menu options
-     - Photos
      - Customer reviews and ratings
      - Contact information
+![My_bookings](static/images/my_bookigs.png)
+
 
 4. **Reservation Management**:
    - Users can easily book tables for desired dates and times.
