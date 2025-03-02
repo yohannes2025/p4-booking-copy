@@ -366,6 +366,9 @@ Regular debugging sessions were held, and issues were tracked in the GitHub repo
 
 ### Lighthouse
 Performance audits were conducted using Google Lighthouse, focusing on speed and accessibility.
+
+![Alt text](static/images/lighthouse.png)
+
   
 ---
 
@@ -394,6 +397,9 @@ Performance audits were conducted using Google Lighthouse, focusing on speed and
 ### Validation Testing
 #### HTML & CSS
 All HTML and CSS were validated using the W3C Validator to ensure conformance with web standards.
+
+![CSS Validation](static/images/css_validation.png)
+
 
 #### Python Testing
 Unit tests were created using Django's testing framework to validate models and views.
