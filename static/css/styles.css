@@ -55,13 +55,3 @@ select:focus {
 .alert {
   margin-bottom: 20px; /* Space below alert */
 }
-
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1;
-}
