@@ -62,7 +62,7 @@ The Restaurant Booking System aims to provide users with an easy and efficient w
 
 ### Target Audience
 The target audience for this application includes:
-1. **Diners**:
+1. **Customers**:
    * **Food Enthusiasts**: Individuals looking to try new dining experiences, cuisines, and venues.
    * **Families**: Parents seeking a convenient way to book tables for family outings.
    * **Corporate Clients**: Professionals needing to arrange business lunches or dinners at restaurants.
