@@ -1,7 +1,8 @@
 <!-- booking_app/templates/booking_app/book_table.html -->
-{% extends 'booking_app/base.html' %} {% load crispy_forms_tags %}
+{% extends 'booking_app/base.html' %}
+{% load crispy_forms_tags %}
 
-{% block title %} Book a Table {% endblock %}
+{% block title %}Book a Table{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
@@ -17,19 +18,20 @@
             {% csrf_token %}
             <h2 id="booking-form-title" class="visually-hidden">Table Booking Form</h2>
 
-            {% comment %} Render form fields using Crispy Forms with specific classes {% endcomment %}
             <div class="mb-3">
               {{ form.restaurant|as_crispy_field }}
               {% if form.restaurant.help_text %}
               <small class="form-text text-muted">{{ form.restaurant.help_text }}</small>
               {% endif %}
             </div>
+
             <div class="mb-3">
               {{ form.table|as_crispy_field }}
               {% if form.table.help_text %}
               <small class="form-text text-muted">{{ form.table.help_text }}</small>
               {% endif %}
             </div>
+
             <div class="mb-3">
               <label for="{{ form.booking_date.id_for_label }}" class="form-label">Booking Date</label>
               <div class="input-group date" id="datepicker-group">
@@ -42,15 +44,17 @@
               <small class="form-text text-muted">{{ form.booking_date.help_text }}</small>
               {% endif %}
               {% for error in form.booking_date.errors %}
-                <div class="invalid-feedback d-block" role="alert">{{ error }}</div>
+              <div class="invalid-feedback d-block" role="alert">{{ error }}</div>
               {% endfor %}
             </div>
+
             <div class="mb-3">
               {{ form.booking_time|as_crispy_field }}
               {% if form.booking_time.help_text %}
               <small class="form-text text-muted">{{ form.booking_time.help_text }}</small>
               {% endif %}
             </div>
+
             <div class="mb-3">
               {{ form.number_of_guests|as_crispy_field }}
               {% if form.number_of_guests.help_text %}
@@ -65,32 +69,37 @@
     </div>
   </div>
 </div>
+{% endblock %}
 
 {% block extra_js %}
 <script>
-  $(document).ready(function() {    
-    $('#id_restaurant').change(function() {
+  $(document).ready(function () {
+    $('#id_restaurant').change(function () {
       var restaurantId = $(this).val();
       var tableSelect = $('#id_table');
-      tableSelect.empty().append('<option value="">--- Select a table ---</option>'); 
+      tableSelect.empty().append('<option value="">--- Select a table ---</option>');
 
       if (restaurantId) {
         $.ajax({
-          url: '/api/get_tables/' + restaurantId + '/', 
+          url: '/api/get_tables/' + restaurantId + '/',
           dataType: 'json',
-          success: function(data) {
-            $.each(data, function(key, table) {
-              tableSelect.append($('<option></option>').attr('value', table.id).text('Table ' + table.table_number + ' (Capacity: ' + table.capacity + ')'));
+          success: function (data) {
+            $.each(data, function (key, table) {
+              tableSelect.append(
+                $('<option></option>')
+                  .attr('value', table.id)
+                  .text('Table ' + table.table_number + ' (Capacity: ' + table.capacity + ')')
+              );
             });
           },
-          error: function(xhr, status, error) {
+          error: function (xhr, status, error) {
             console.error("Error fetching tables:", error);
           }
         });
       }
     });
+
     $('#id_booking_date').addClass('datepicker');
   });
 </script>
 {% endblock %}
-

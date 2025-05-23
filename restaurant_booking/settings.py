@@ -27,7 +27,7 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.herokuapp.com', '127.0.0.1']
 
@@ -170,6 +170,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"  # Redirect users after logout
+ACCOUT_LOGOUT_REDIRECT_URL = "home"  # Redirect users after logout
 
 

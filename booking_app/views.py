@@ -1,4 +1,5 @@
 # booking_app/views.py
+# booking_app/views.py
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -7,6 +8,7 @@ from django.urls import reverse
 from django.http import JsonResponse  # Import for JSON response
 from .models import Booking, Table, Restaurant
 from .forms import BookingForm
+
 
 
 def home(request):
