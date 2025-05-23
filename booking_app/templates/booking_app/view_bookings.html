@@ -1,36 +1,53 @@
 {% extends "booking_app/base.html" %}
 {% block title %}My Bookings{% endblock %}
 {% block content %}
-<h1>My Bookings</h1>
-{% if bookings %}
-<table class="table">
-  <thead>
-    <tr>
-      <th>Booking Date</th>
-      <th>Booking Time</th>
-      <th>Restaurant</th>
-      <th>Table</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for booking in bookings %}
-    <tr>
-      <td>{{ booking.booking_date }}</td>
-      <td>{{ booking.booking_time }}</td>
-      <td>{{ booking.restaurant.name }}</td>
-      <td>Table {{ booking.table.table_number }}</td>
-      <td>
-        <form method="post" action="{% url 'cancel_booking' booking.id %}" style="display: inline">
-          {% csrf_token %}
-          <button type="submit" class="btn btn-danger">Cancel</button>
-        </form>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<p>You have no bookings.</p>
-{% endif %}
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">My Bookings</h1>
+
+  {% if bookings %}
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <caption class="visually-hidden">List of your current restaurant bookings</caption>
+      <thead>
+        <tr>
+          <th scope="col">Restaurant</th>
+          <th scope="col">Table</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Guests</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.restaurant.name }}</td>
+          <td>Table {{ booking.table.table_number }} (Capacity: {{ booking.table.capacity }})</td>
+          <td>{{ booking.booking_date|date:"F j, Y" }}</td>
+          <td>{{ booking.booking_time|time:"h:i A" }}</td>
+          <td>{{ booking.number_of_guests }}</td>
+          <td>
+            <form method="post" action="{% url 'cancel_booking' booking.id %}" class="d-inline" aria-label="Cancel booking for {{ booking.restaurant.name }} on {{ booking.booking_date }}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-danger">
+                <i class="fas fa-times-circle" aria-hidden="true"></i> Cancel
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="alert alert-info text-center" role="alert">
+    <h2 class="alert-heading">No Bookings Found!</h2>
+    <p>You haven't made any bookings yet.</p>
+    <hr>
+    <a href="{% url 'book_table' %}" class="btn btn-primary btn-lg"
+      ><i class="fas fa-plus-circle" aria-hidden="true"></i> Book a Table Now</a
+    >
+  </div>
+  {% endif %}
+</div>
 {% endblock %}
