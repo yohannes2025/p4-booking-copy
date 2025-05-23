@@ -1,13 +1,25 @@
 <!-- booking_app/templates/booking_app/cancel_booking.html -->
-{% extends 'booking_app/base.html' %} {% block title %}Cancel Booking{% endblock
-%} {% block content %}
-<h1>Cancel Booking</h1>
-<p>Are you sure you want to cancel this booking?</p>
-<form method="post">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger">Confirm Cancellation</button>
-  <a href="{% url 'view_bookings' %}" class="btn btn-secondary"
-    >Back to Bookings</a
-  >
-</form>
+{% extends 'booking_app/base.html' %} {% block title %}Cancel Booking{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h1 class="mb-4 text-danger">Cancel Booking</h1>
+  <p class="lead">
+    Are you sure you want to cancel your booking for
+    <strong>{{ booking.restaurant.name }}</strong> on
+    <strong>{{ booking.booking_date }}</strong> at
+    <strong>{{ booking.booking_time }}</strong>?
+  </p>
+  <p>This action cannot be undone.</p>
+  <form method="post" aria-label="Confirm booking cancellation">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-lg me-2">
+      <i class="fas fa-trash-alt" aria-hidden="true"></i> Confirm Cancellation
+    </button>
+    <a href="{% url 'view_bookings' %}" class="btn btn-secondary btn-lg"
+      ><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Bookings</a
+    >
+  </form>
+</div>
 {% endblock %}
+
