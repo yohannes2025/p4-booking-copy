@@ -1,14 +1,35 @@
 <!-- booking_app/templates/booking_app/home.html -->
-{% extends 'booking_app/base.html' %} {% block title %}Home{% endblock %}
-{%block content %}
-<h1>Welcome!</h1>
-<p>Choose a restaurant to book a table:</p>
-{% if restaurants %}
-<ul>
-  {% for restaurant in restaurants %}
-  <li><a href="{% url 'book_table' %}">{{ restaurant.name }}</a></li>
-  {% endfor %}
-</ul>
-{% else %}
-<p>No restaurants available at the moment.</p>
-{% endif %} {% endblock %}
+{% extends 'booking_app/base.html' %} {% block title %}Welcome to Restaurant Booking{% endblock %}
+{% block content %}
+<div class="container text-center mt-5">
+  <h1 class="display-4 mb-4">Welcome to Restaurant Booking!</h1>
+  <p class="lead mb-5">
+    Find and reserve your perfect table at your favorite restaurants.
+  </p>
+
+  {% if restaurants %}
+  <h2 class="mb-4">Available Restaurants</h2>
+  <div class="row justify-content-center">
+    {% for restaurant in restaurants %}
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h3 class="card-title">{{ restaurant.name }}</h3>
+          <p class="card-text text-muted">{{ restaurant.address }}</p>
+          <a href="{% url 'book_table' %}" class="btn btn-primary mt-auto"
+            >Book a Table Here</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="alert alert-info" role="alert">
+    <h2 class="alert-heading">No Restaurants Available</h2>
+    <p>We're sorry, there are no restaurants listed at the moment. Please check back later!</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
