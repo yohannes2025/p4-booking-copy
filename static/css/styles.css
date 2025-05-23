@@ -1,57 +1,181 @@
 /* static/css/styles.css */
+
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #007bff;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #0056b3; /* Visual focus indicator */
+}
+
+/* General body styling for better readability */
 body {
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
   color: #333;
-  margin: 0;
-  padding: 20px;
-  overflow: hidden;
 }
 
-/* static/css/styles.css */
-
-/* General form container style */
-form {
-  background-color: #f8f9fa; /* Light background for the form */
-  border-radius: 8px; /* Rounded corners */
-  padding: 20px; /* Spacing inside the form */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+/* Navbar Enhancements */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the input elements */
-input[type="text"],
-input[type="email"],
-input[type="number"],
-select {
-  border: 1px solid #ced4da; /* Border color */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px; /* Padding inside the input */
-  width: 100%; /* Full width */
-  transition: border-color 0.3s; /* Smooth transition */
+.navbar-brand {
+  font-weight: 700;
+  color: #212529 !important; /* Ensure good contrast */
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="number"]:focus,
-select:focus {
-  border-color: #007bff; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+.navbar-nav .nav-link {
+  color: #212529 !important; /* Ensure good contrast */
+  transition: color 0.3s ease-in-out;
 }
 
-/* Style the submit button */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #0056b3 !important; /* Highlight on hover/focus */
+}
+
+/* Forms Styling */
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block; /* Ensures label takes full width */
+}
+
+.form-control {
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button Styling */
 .btn-primary {
-  background-color: #007bff; /* Bootstrap primary color */
-  border-color: #007bff; /* Matching border color */
-  transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
-  width: 30%;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3; /* Darken on hover */
-  border-color: #0056b3; /* Darken the border on hover */
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
-.alert {
-  margin-bottom: 20px; /* Space below alert */
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Card Styling for Login/Register */
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 1.5rem;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+/* Table Styling */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #343a40 !important; /* Darker footer for better contrast */
+  color: #f8f9fa !important;
+}
+
+footer p {
+  margin-bottom: 0;
+  color: #ced4da !important; /* Lighter text for readability on dark background */
+}
+
+/* General Layout */
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+/* Visually hidden but accessible content */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
