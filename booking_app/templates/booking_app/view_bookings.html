@@ -27,6 +27,11 @@
           <td>{{ booking.booking_time|time:"h:i A" }}</td>
           <td>{{ booking.number_of_guests }}</td>
           <td>
+            <a href="{% url 'update_booking' booking.id %}" class="btn btn-sm btn-info me-2" aria-label="Edit booking for {{ booking.restaurant.name }} on {{ booking.booking_date }}">
+
+              <i class="fas fa-edit" aria-hidden="true"></i> Edit
+
+            </a>
             <form method="post" action="{% url 'cancel_booking' booking.id %}" class="d-inline" aria-label="Cancel booking for {{ booking.restaurant.name }} on {{ booking.booking_date }}">
               {% csrf_token %}
               <button type="submit" class="btn btn-sm btn-danger">
