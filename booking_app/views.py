@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.http import JsonResponse  # Import for JSON response
 from .models import Booking, Table, Restaurant
 from .forms import BookingForm
+from datetime import datetime
 
 
 
@@ -74,6 +75,35 @@ def cancel_booking(request, booking_id):
         request,
         'booking_app/cancel_booking.html',
         {'booking': booking, 'current_year': current_year}
+    )
+
+# NEW VIEW FOR UPDATING BOOKINGS
+
+
+@login_required
+def update_booking(request, booking_id):
+    booking = get_object_or_404(Booking, pk=booking_id, user=request.user)
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            try:
+                form.save()
+                messages.success(
+                    request, 'Your booking has been updated successfully!')
+                return redirect('view_bookings')
+            except Exception as e:
+                messages.error(
+                    request, f'There was an error updating your booking: {e}')
+        # No else needed, crispy forms will display errors
+    else:
+        # Pre-fill the form with existing booking data
+        form = BookingForm(instance=booking)
+
+    current_year = datetime.now().year
+    return render(
+        request,
+        'booking_app/book_table.html',  # Reusing the book_table template for consistency
+        {'form': form, 'current_year': current_year}
     )
 
 
