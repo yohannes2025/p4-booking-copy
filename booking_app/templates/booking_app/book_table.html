@@ -1,0 +1,105 @@
+<!-- booking_app/templates/booking_app/book_table.html -->
+{% extends 'booking_app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Book a Table{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">Book Your Table</h1>
+  <p class="lead text-center">
+    Fill out the form below to secure your reservation.
+  </p>
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg">
+        <div class="card-body">
+          <form method="post" class="form" aria-labelledby="booking-form-title">
+            {% csrf_token %}
+            <h2 id="booking-form-title" class="visually-hidden">Table Booking Form</h2>
+
+            <div class="mb-3">
+              {{ form.restaurant|as_crispy_field }}
+              {% if form.restaurant.help_text %}
+              <small class="form-text text-muted">{{ form.restaurant.help_text }}</small>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              {{ form.table|as_crispy_field }}
+              {% if form.table.help_text %}
+              <small class="form-text text-muted">{{ form.table.help_text }}</small>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              <label for="{{ form.booking_date.id_for_label }}" class="form-label">Booking Date</label>
+              <div class="input-group date" id="datepicker-group">
+                {{ form.booking_date }}
+                <span class="input-group-text">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+              {% if form.booking_date.help_text %}
+              <small class="form-text text-muted">{{ form.booking_date.help_text }}</small>
+              {% endif %}
+              {% for error in form.booking_date.errors %}
+              <div class="invalid-feedback d-block" role="alert">{{ error }}</div>
+              {% endfor %}
+            </div>
+
+            <div class="mb-3">
+              {{ form.booking_time|as_crispy_field }}
+              {% if form.booking_time.help_text %}
+              <small class="form-text text-muted">{{ form.booking_time.help_text }}</small>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+              {{ form.number_of_guests|as_crispy_field }}
+              {% if form.number_of_guests.help_text %}
+              <small class="form-text text-muted">{{ form.number_of_guests.help_text }}</small>
+              {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Confirm Booking</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+    $('#id_restaurant').change(function () {
+      var restaurantId = $(this).val();
+      var tableSelect = $('#id_table');
+      tableSelect.empty().append('<option value="">--- Select a table ---</option>');
+
+      if (restaurantId) {
+        $.ajax({
+          url: '/api/get_tables/' + restaurantId + '/',
+          dataType: 'json',
+          success: function (data) {
+            $.each(data, function (key, table) {
+              tableSelect.append(
+                $('<option></option>')
+                  .attr('value', table.id)
+                  .text('Table ' + table.table_number + ' (Capacity: ' + table.capacity + ')')
+              );
+            });
+          },
+          error: function (xhr, status, error) {
+            console.error("Error fetching tables:", error);
+          }
+        });
+      }
+    });
+
+    $('#id_booking_date').addClass('datepicker');
+  });
+</script>
+{% endblock %}

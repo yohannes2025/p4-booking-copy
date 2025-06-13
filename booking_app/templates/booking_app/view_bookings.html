@@ -1,0 +1,59 @@
+<!-- booking_app/templates/booking_app/view_bookings.html -->
+{% extends "booking_app/base.html" %}
+{% block title %}My Bookings{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <h1 class="mb-4 text-center">My Bookings</h1>
+
+  {% if bookings %}
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <caption class="visually-hidden">List of your current restaurant bookings</caption>
+      <thead>
+        <tr>
+          <th scope="col">Restaurant</th>
+          <th scope="col">Table</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Guests</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.restaurant.name }}</td>
+          <td>Table {{ booking.table.table_number }} (Capacity: {{ booking.table.capacity }})</td>
+          <td>{{ booking.booking_date|date:"F j, Y" }}</td>
+          <td>{{ booking.booking_time|time:"h:i A" }}</td>
+          <td>{{ booking.number_of_guests }}</td>
+          <td>
+            <a href="{% url 'update_booking' booking.id %}" class="btn btn-sm btn-info me-2" aria-label="Edit booking for {{ booking.restaurant.name }} on {{ booking.booking_date }}">
+
+              <i class="fas fa-edit" aria-hidden="true"></i> Edit
+
+            </a>
+            <form method="post" action="{% url 'cancel_booking' booking.id %}" class="d-inline" aria-label="Cancel booking for {{ booking.restaurant.name }} on {{ booking.booking_date }}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-danger">
+                <i class="fas fa-times-circle" aria-hidden="true"></i> Cancel
+              </button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="alert alert-info text-center" role="alert">
+    <h2 class="alert-heading">No Bookings Found!</h2>
+    <p>You haven't made any bookings yet.</p>
+    <hr>
+    <a href="{% url 'book_table' %}" class="btn btn-primary btn-lg"
+      ><i class="fas fa-plus-circle" aria-hidden="true"></i> Book a Table Now</a
+    >
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
