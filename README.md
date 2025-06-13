@@ -1,6 +1,6 @@
 # Restaurant Booking System
 
-![hero_Page](static/images/hero_page.png)
+![hero_image](static/images/hero_image.png)
 
 ## CONTENTS
 - [Site Objectives](#site-objectives)
